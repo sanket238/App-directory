@@ -1,0 +1,26 @@
+<h2>one piece Listing</h2>
+
+<form id="filter">
+  <label>Filter one piece by name:</label>
+  <input type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="term" />
+</form>
+<ul id="ninja-listing">
+  <li *ngFor="let x of sanji | filter:term">
+    <div class="single-ninja">
+      <!-- Belt Color -->
+      <span [ngStyle]="{background: x.belt}">{{x.belt}} belt</span>
+      <!-- Ninja Name -->
+      <h3>{{x.name}}</h3>
+      <!-- <div (click)="remove($event)" [attr.data-name]="x.name">delete</div> -->
+    </div> 
+  </li>
+</ul>
+
+<form id="add-user">
+  <input type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="name" placeholder="Enter your name">
+  <input type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="belt" placeholder="Enter your color" />
+  
+  <button (click)="fbPostData(name,belt)">Add user</button>
+  
+
+</form>
